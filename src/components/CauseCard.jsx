@@ -6,8 +6,15 @@ import Photo from './Photo'
 export default function CauseCard({ icon, title, text, image, to = '/causes' }) {
   return (
     <article className="group flex overflow-hidden rounded-2xl bg-white shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-lift sm:flex-col">
-      <div className="relative w-28 shrink-0 overflow-hidden sm:h-48 sm:w-full">
-        <div className="h-full w-full transition duration-500 group-hover:scale-105"><Photo src={image} alt={`${title} activity by Jan Manav Kalyan Foundation`} /></div>
+      <div className="relative h-28 w-28 shrink-0 overflow-hidden bg-warm sm:h-auto sm:w-full sm:aspect-[4/3]">
+        <div className="h-full w-full transition duration-500 group-hover:scale-105">
+          <Photo
+            src={image}
+            alt={`${title} activity by Jan Manav Kalyan Foundation`}
+            fit="contain"
+            className="bg-gradient-to-br from-royal/5 via-white to-leaf/5"
+          />
+        </div>
         <span className="absolute bottom-0 left-0 hidden h-1 w-0 bg-saffron transition-all duration-300 group-hover:w-full sm:block" />
       </div>
       <div className="flex flex-1 flex-col p-4 sm:p-5">

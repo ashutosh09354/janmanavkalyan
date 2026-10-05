@@ -56,7 +56,7 @@ export const IMPACT = [
 ]
 
 export const CAUSES = [
-  { slug: 'education', icon: 'BookOpen', title: 'Education', text: 'Supporting learning opportunities for children and families.', image: '/images/instsgram post/656649099_18120069895528037_1551288656074156068_n..webp' },
+  { slug: 'education', icon: 'BookOpen', title: 'Education', text: 'Supporting learning opportunities for children and families.', image: '/images/instagram/insta3.webp' },
   { slug: 'healthcare', icon: 'Activity', title: 'Healthcare', text: 'Community healthcare support and awareness.', image: '/images/instagram/insta4.webp' },
   { slug: 'food', icon: 'Soup', title: 'Food Distribution', text: 'Providing food to those in need.', image: '/images/instsgram post/655987176_18069999431270939_3194857039852054680_n..webp' },
   { slug: 'blood', icon: 'Droplet', title: 'Blood Donation', text: 'Organizing blood donation camps.', image: '/images/instsgram post/655713653_18098869942784421_5885450048993260738_n..webp' },
@@ -88,7 +88,7 @@ export const WORK = [
   { id: 'instagram-post-3', category: 'Community Events', title: 'Jan Manav Kalyan Foundation activity', date: '', image: '/images/instsgram post/655713653_18098869942784421_5885450048993260738_n..webp' },
   { id: 'instagram-post-4', category: 'Community Events', title: 'Jan Manav Kalyan Foundation activity', date: '', image: '/images/instsgram post/655987176_18069999431270939_3194857039852054680_n..webp' },
   { id: 'instagram-post-5', category: 'Community Events', title: 'Jan Manav Kalyan Foundation activity', date: '', image: '/images/instsgram post/656077685_18059426180691292_4985631946105061619_n..webp' },
-  { id: 'instagram-post-6', category: 'Community Events', title: 'Jan Manav Kalyan Foundation activity', date: '', image: '/images/instsgram post/656649099_18120069895528037_1551288656074156068_n..webp' },
+  { id: 'instagram-post-6', category: 'Community Events', title: 'Jan Manav Kalyan Foundation activity', date: '', image: '/images/instagram/insta3.webp' },
   { id: 'instagram-post-7', category: 'Community Events', title: 'Jan Manav Kalyan Foundation activity', date: '', image: '/images/instsgram post/658380524_18309529420287319_7949303713269082549_n..webp' },
   { id: 'instagram-image-3', category: 'Community Events', title: 'Jan Manav Kalyan Foundation activity', date: '', image: '/images/instagram/insta3.webp' },
   { id: 'instagram-image-2', category: 'Community Events', title: 'Jan Manav Kalyan Foundation activity', date: '', image: '/images/instagram/insta2.webp' },
