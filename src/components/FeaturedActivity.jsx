@@ -6,7 +6,7 @@ export default function FeaturedActivity() {
   return (
     <section aria-labelledby="featured-title" className="section-y">
       <div className="container-x">
-        <div className="overflow-hidden rounded-3xl bg-royal text-white shadow-lift lg:grid lg:grid-cols-5">
+        <div className="overflow-hidden rounded-xl border border-royal/15 bg-royal text-white shadow-lift lg:grid lg:grid-cols-5">
           <Reveal className="relative aspect-[4/3] lg:col-span-3 lg:aspect-auto lg:min-h-[420px]">
             <Photo src="/images/about/About1.png" alt="Foundation members and volunteers taking part together in a community activity" position="center 25%" />
           </Reveal>

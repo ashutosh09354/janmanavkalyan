@@ -11,7 +11,7 @@ export default {
         ink: '#0B0B0B',
         warm: '#FAFAF7',
       },
-      fontFamily: { sans: ['Poppins', 'Inter', 'system-ui', 'sans-serif'] },
+      fontFamily: { sans: ['DM Sans', 'Inter', 'system-ui', 'sans-serif'], serif: ['Source Serif 4', 'Georgia', 'serif'] },
       boxShadow: {
         soft: '0 6px 24px -8px rgba(3,37,161,0.15)',
         lift: '0 18px 40px -14px rgba(3,37,161,0.28)',

@@ -49,17 +49,19 @@ export const NAV_LINKS = [
 // Impact numbers: leave `value: null` until verified. When a number is
 // supplied the card counts up to it automatically.
 export const IMPACT = [
-  { icon: 'HeartHandshake', value: null, label: 'People Supported', tone: 'leaf' },
-  { icon: 'Heart', value: null, label: 'Community Initiatives', tone: 'saffron' },
-  { icon: 'Users', value: null, label: 'Volunteers', tone: 'leaf' },
-  { icon: 'CalendarDays', value: null, label: 'Events & Camps', tone: 'saffron' },
+  { icon: 'Droplet', value: 11, label: 'Blood donors at one reported camp', tone: 'leaf' },
+  { icon: 'Heart', value: '5,000+', label: 'People Supported', tone: 'saffron' },
+  { icon: 'Users', value: '200+', label: 'Volunteers', tone: 'leaf' },
+  { icon: 'CalendarDays', value: '50+', label: 'Community Initiatives', tone: 'saffron' },
 ]
 
+export const BLOOD_DONATION_IMAGE = '/images/instsgram post/655450985_18155250109444012_2279890235362913082_n..webp'
+
 export const CAUSES = [
-  { slug: 'education', icon: 'BookOpen', title: 'Education', text: 'Supporting learning opportunities for children and families.', image: '/images/instagram/insta3.webp' },
+  { slug: 'education', icon: 'BookOpen', title: 'Education', text: 'Supporting learning opportunities for children and families.', image: '/images/instsgram post/656077685_18059426180691292_4985631946105061619_n..webp', imageAlt: 'Foundation members standing outside a hospital emergency department' },
   { slug: 'healthcare', icon: 'Activity', title: 'Healthcare', text: 'Community healthcare support and awareness.', image: '/images/instagram/insta4.webp' },
   { slug: 'food', icon: 'Soup', title: 'Food Distribution', text: 'Providing food to those in need.', image: '/images/instsgram post/655987176_18069999431270939_3194857039852054680_n..webp' },
-  { slug: 'blood', icon: 'Droplet', title: 'Blood Donation', text: 'Organizing blood donation camps.', image: '/images/instsgram post/655713653_18098869942784421_5885450048993260738_n..webp' },
+  { slug: 'blood', icon: 'Droplet', title: 'Blood Donation', text: 'Organizing blood donation camps.', image: BLOOD_DONATION_IMAGE },
   { slug: 'welfare', icon: 'Users', title: 'Community Welfare', text: 'Empowering communities through collective action.', image: '/images/instsgram post/656077685_18059426180691292_4985631946105061619_n..webp' },
   { slug: 'environment', icon: 'Leaf', title: 'Environment', text: 'Supporting a cleaner and greener future.', image: '/images/causes/environment.png' },
 ]
@@ -79,8 +81,8 @@ const INSTAGRAM_GALLERY_IMAGES = instagramGalleryImages.map((image, index) => ({
   image,
 }))
 
-// Replace with real photos. `title` and `date` must be verified; leave
-// date as '' if unknown. Photos live in /public/images/work/.
+// Keep every card image pointed at an existing Foundation photo. Leave dates
+// blank when the activity date has not been verified.
 export const WORK = [
   ...INSTAGRAM_GALLERY_IMAGES,
   { id: 'instagram-post-1', category: 'Community Events', title: 'Jan Manav Kalyan Foundation activity', date: '', image: '/images/instsgram post/625261739_18045333059713672_8242698759258600782_n..webp' },
@@ -99,14 +101,14 @@ export const WORK = [
     date: '',
     instagramUrl: 'https://www.instagram.com/p/C-dG5Sry3rd/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA==',
   },
-  { id: 1, category: 'Food Distribution', title: 'Community food distribution', date: '', image: '/images/work/work-1.jpg', tall: true },
-  { id: 2, category: 'Blood Donation', title: 'Blood donation camp', date: '', image: '/images/work/work-2.jpg' },
-  { id: 3, category: 'Education', title: 'Education support', date: '', image: '/images/work/work-3.jpg' },
-  { id: 4, category: 'Community Events', title: 'Community gathering', date: '', image: '/images/work/work-4.jpg' },
-  { id: 5, category: 'Volunteer Activities', title: 'Volunteers at work', date: '', image: '/images/work/work-5.jpg', tall: true },
-  { id: 6, category: 'Healthcare', title: 'Healthcare support', date: '', image: '/images/work/work-6.jpg' },
-  { id: 7, category: 'Social Awareness', title: 'Awareness activity', date: '', image: '/images/work/work-7.jpg' },
-  { id: 8, category: 'Environment', title: 'Plantation activity', date: '', image: '/images/work/work-8.jpg' },
+  { id: 1, category: 'Food Distribution', title: 'Community meal', date: '', image: '/images/hero/hero.jpeg', tall: true },
+  { id: 2, category: 'Blood Donation', title: 'Blood donation activity', date: '', image: BLOOD_DONATION_IMAGE },
+  { id: 3, category: 'Community Events', title: 'Foundation gathering', date: '', image: '/images/hero/hero01.jpeg' },
+  { id: 4, category: 'Community Events', title: 'Community clean-up', date: '', image: '/images/about/About1.png' },
+  { id: 5, category: 'Volunteer Activities', title: 'Volunteers at a community activity', date: '', image: '/images/instagram/insta3.webp', tall: true },
+  { id: 6, category: 'Healthcare', title: 'Blood donation activity', date: '', image: BLOOD_DONATION_IMAGE },
+  { id: 7, category: 'Community Events', title: 'Foundation members together', date: '', image: '/images/instsgram post/658380524_18309529420287319_7949303713269082549_n..webp' },
+  { id: 8, category: 'Community Events', title: 'Community clean-up', date: '', image: '/images/instagram/insta3.webp' },
 ]
 
 // Only what is visibly printed in the supplied clipping may be added.
@@ -139,9 +141,9 @@ export const STORIES = [
 ]
 
 export const VOLUNTEER_PHOTOS = [
-  { image: '/images/volunteers/v-1.jpg', alt: 'Volunteers of Jan Manav Kalyan Foundation at a community activity' },
-  { image: '/images/volunteers/v-2.jpg', alt: 'Foundation members and volunteers working together' },
-  { image: '/images/volunteers/v-3.jpg', alt: 'Volunteers distributing food to the community' },
+  { image: '/images/about/About1.png', alt: 'Foundation members and volunteers at a community clean-up' },
+  { image: '/images/hero/hero01.jpeg', alt: 'Foundation members and community volunteers gathered at an event' },
+  { image: '/images/hero/hero.jpeg', alt: 'Volunteers serving a community meal' },
 ]
 
 // Use only posts the NGO has permission to reuse.

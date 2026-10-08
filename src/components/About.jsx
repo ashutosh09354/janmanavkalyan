@@ -3,6 +3,7 @@ import Photo from './Photo'
 import Reveal from './Reveal'
 
 export default function About({ full = false }) {
+  const Heading = full ? 'h1' : 'h2'
   return (
     <section aria-labelledby="about-title" className="section-y">
       <div className="container-x grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
@@ -15,7 +16,7 @@ export default function About({ full = false }) {
         </Reveal>
         <Reveal delay={0.1}>
           <p className="text-sm font-semibold text-leaf-700">About Jan Manav Kalyan Foundation</p>
-          <h2 id="about-title" className="mt-1 text-2xl font-bold sm:text-3xl lg:text-4xl">Working Together for a Better Tomorrow</h2>
+          <Heading id="about-title" className="mt-1 text-2xl font-bold sm:text-3xl lg:text-4xl">Working Together for a Better Tomorrow</Heading>
           <div className="mt-4 space-y-3 text-[15px] leading-relaxed text-ink/75">
             <p>Jan Manav Kalyan Foundation is a community-driven organization dedicated to supporting people in need through education, healthcare, food distribution, blood donation, social welfare and other humanitarian initiatives.</p>
             <p>Our aim is to create positive change in society by bringing people together, with volunteers and community members working side by side.</p>

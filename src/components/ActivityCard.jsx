@@ -7,7 +7,7 @@ export default function ActivityCard({ title, text, image, video, poster, date, 
   const [playing, setPlaying] = useState(false)
 
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-lift">
+    <article className="group flex h-full flex-col overflow-hidden rounded-lg border border-[#d9ded8] bg-white shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-lift">
       <div className="aspect-[4/3] overflow-hidden">
         {video && playing ? (
           <video className="h-full w-full object-cover" controls playsInline autoPlay preload="metadata" poster={poster} aria-label={title}>

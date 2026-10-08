@@ -14,7 +14,7 @@ export default function Logo({ light = false, showText = true }) {
       {showText && (
         <span className="leading-tight">
           <span className={`block text-[11px] font-bold sm:text-sm ${light ? 'text-white' : 'text-royal'}`}>JAN MANAV KALYAN<br />FOUNDATION</span>
-          <span className="block text-[11px] font-semibold text-saffron">{ORG.hindiTagline}</span>
+          <span className={`block text-[11px] font-medium ${light ? 'text-white/65' : 'text-ink/55'}`}>{ORG.tagline}</span>
         </span>
       )}
     </Link>

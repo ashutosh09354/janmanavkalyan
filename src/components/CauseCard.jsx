@@ -3,14 +3,14 @@ import { ArrowRight } from 'lucide-react'
 import Icon from './Icon'
 import Photo from './Photo'
 
-export default function CauseCard({ icon, title, text, image, to = '/causes' }) {
+export default function CauseCard({ icon, title, text, image, imageAlt, to = '/causes' }) {
   return (
-    <article className="group flex overflow-hidden rounded-2xl bg-white shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-lift sm:flex-col">
+    <article className="group flex overflow-hidden rounded-lg border border-[#d9ded8] bg-white shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-lift sm:flex-col">
       <div className="relative h-28 w-28 shrink-0 overflow-hidden bg-warm sm:h-auto sm:w-full sm:aspect-[4/3]">
         <div className="h-full w-full transition duration-500 group-hover:scale-105">
           <Photo
             src={image}
-            alt={`${title} activity by Jan Manav Kalyan Foundation`}
+            alt={imageAlt || `${title} activity by Jan Manav Kalyan Foundation`}
             fit="contain"
             className="bg-gradient-to-br from-royal/5 via-white to-leaf/5"
           />

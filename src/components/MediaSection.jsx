@@ -10,7 +10,7 @@ export default function MediaSection() {
   return (
     <section aria-labelledby="media-title" className="section-y bg-white/60">
       <div className="container-x">
-        <SectionHeading id="media-title" title="In the News" subtitle="Our work and community initiatives have also been featured in local media." />
+        <SectionHeading as="h1" id="media-title" title="In the News" subtitle="Media coverage of documented Foundation activities." />
         <div className="grid gap-5 md:grid-cols-2">
           {MEDIA.map((m) => <MediaCard key={m.id} item={m} onOpen={setOpen} />)}
         </div>

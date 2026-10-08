@@ -14,23 +14,31 @@
 
   html {
     scroll-behavior: smooth;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
   }
-  html::-webkit-scrollbar { display: none; }
   body { @apply bg-warm text-ink font-sans antialiased overflow-x-hidden; }
   :focus-visible { @apply outline-none ring-2 ring-saffron ring-offset-2; }
   h1, h2, h3 { @apply text-royal; }
 }
 @layer components {
-  .container-x { @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8; }
-  .section-y { @apply py-12 sm:py-16 lg:py-20; }
-  .btn { @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition duration-200 min-h-[44px]; }
-  .btn-saffron { @apply bg-saffron text-ink hover:bg-saffron-700 hover:shadow-lift; }
-  .btn-royal { @apply bg-royal text-white hover:bg-royal-700 hover:shadow-lift; }
+  .container-x { @apply mx-auto w-full max-w-7xl px-5 sm:px-7 lg:px-10; }
+  .section-y { @apply py-14 sm:py-[4.5rem] lg:py-24; }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-md px-6 py-3 text-sm font-semibold transition duration-200 min-h-[48px] focus-visible:ring-2 focus-visible:ring-saffron; }
+  .btn-saffron { @apply bg-saffron text-ink hover:bg-saffron-700; }
+  .btn-royal { @apply bg-royal text-white hover:bg-royal-700; }
   .btn-leaf { @apply bg-leaf text-white hover:bg-leaf-700; }
   .btn-ghost { @apply border border-white/70 text-white hover:bg-white hover:text-royal; }
   .btn-outline { @apply border border-royal text-royal hover:bg-royal hover:text-white; }
+  .eyebrow { @apply text-[13px] font-semibold uppercase tracking-[0.15em] text-leaf-700; }
+  .editorial-heading { @apply font-serif text-3xl font-medium leading-[1.12] tracking-[-0.025em] text-royal sm:text-[2.65rem] lg:text-[3rem]; }
+  .text-link { @apply inline-flex min-h-[44px] items-center gap-2 text-sm font-semibold text-royal transition hover:text-leaf-700; }
+}
+.home-hero > img { object-fit: cover; object-position: var(--photo-position, center); }
+.home-hero-overlay {
+  background: linear-gradient(90deg, rgba(16, 27, 38, 0.95) 0%, rgba(16, 27, 38, 0.88) 43%, rgba(16, 27, 38, 0.58) 66%, rgba(16, 27, 38, 0.05) 100%);
+}
+@media (max-width: 767px) {
+  .home-hero > img { object-position: var(--photo-position-mobile, var(--photo-position, center)); }
+  .home-hero-overlay { background: linear-gradient(0deg, rgba(16, 27, 38, 0.92) 0%, rgba(16, 27, 38, 0.68) 44%, rgba(16, 27, 38, 0.2) 100%); }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }

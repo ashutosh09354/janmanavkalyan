@@ -1,9 +1,31 @@
 import { useEffect, useState } from 'react'
-import { NavLink, Link, useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import Logo from './Logo'
-import { NAV_LINKS } from '../data/siteData'
+
+const desktopLinks = [
+  { label: 'About', to: '/about' },
+  { label: 'Our Work', to: '/work' },
+  { label: 'Impact', to: '/#impact' },
+  { label: 'Campaigns', to: '/campaigns' },
+  { label: 'Stories', to: '/#stories' },
+  { label: 'Get Involved', to: '/#get-involved' },
+]
+
+const mobileLinks = [
+  { label: 'Home', to: '/' },
+  { label: 'About Us', to: '/about' },
+  { label: 'Our Work', to: '/work' },
+  { label: 'Impact', to: '/#impact' },
+  { label: 'Campaigns', to: '/campaigns' },
+  { label: 'Stories', to: '/#stories' },
+  { label: 'Gallery', to: '/gallery' },
+  { label: 'Get Involved', to: '/#get-involved' },
+  { label: 'Contact', to: '/contact' },
+  { label: 'Legal Center', to: '/legal-center' },
+  { label: 'Donate', to: '/donate' },
+]
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
@@ -11,46 +33,44 @@ export default function Navbar() {
   const { pathname } = useLocation()
 
   useEffect(() => {
-    const on = () => setScrolled(window.scrollY > 12)
-    on()
-    window.addEventListener('scroll', on, { passive: true })
-    return () => window.removeEventListener('scroll', on)
+    const onScroll = () => setScrolled(window.scrollY > 12)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
   }, [])
   useEffect(() => setOpen(false), [pathname])
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : ''
-    const esc = (e) => e.key === 'Escape' && setOpen(false)
-    window.addEventListener('keydown', esc)
-    return () => { window.removeEventListener('keydown', esc); document.body.style.overflow = '' }
+    const onKeyDown = (event) => event.key === 'Escape' && setOpen(false)
+    window.addEventListener('keydown', onKeyDown)
+    return () => {
+      window.removeEventListener('keydown', onKeyDown)
+      document.body.style.overflow = ''
+    }
   }, [open])
 
-  const linkCls = ({ isActive }) =>
-    `rounded-full px-2.5 py-2 text-[13px] font-medium transition xl:px-3 xl:text-sm ${isActive ? 'text-royal font-semibold' : 'text-ink/75 hover:text-royal'}`
-
+  const desktopLinkClass = 'px-2 py-2 text-[13px] font-medium text-ink/75 transition hover:text-royal xl:px-2.5'
   return (
-    <header className={`sticky top-0 z-40 w-full transition ${scrolled || open ? 'bg-white/90 shadow-soft backdrop-blur-md' : 'bg-white'}`}>
-      <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:rounded focus:bg-white focus:px-3 focus:py-2">Skip to content</a>
-      <div className="container-x flex h-16 items-center justify-between sm:h-[72px]">
-        <Logo showText={false} />
-        <nav aria-label="Main" className="hidden items-center gap-0.5 lg:flex">
-          {NAV_LINKS.map((l) => (
-            <NavLink key={l.to} to={l.to} end={l.to === '/'} className={linkCls}>{l.label}</NavLink>
-          ))}
+    <header className={`sticky top-0 z-40 w-full border-b border-ink/5 transition ${scrolled || open ? 'bg-white/95 shadow-soft backdrop-blur-md' : 'bg-white'}`}>
+      <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:z-50 focus:rounded focus:bg-white focus:px-3 focus:py-2">Skip to content</a>
+      <div className="container-x flex h-[72px] items-center justify-between gap-4">
+        <Logo showText />
+        <nav aria-label="Main" className="hidden items-center gap-0.5 xl:flex">
+          {desktopLinks.map((link) => <Link key={link.label} to={link.to} className={desktopLinkClass}>{link.label}</Link>)}
         </nav>
         <div className="flex items-center gap-2">
-          <Link to="/donate" className="btn btn-royal hidden !py-2.5 lg:inline-flex">Donate Now</Link>
+          <Link to="/donate" className="btn btn-royal hidden !min-h-10 !rounded-none !px-5 !py-2.5 !text-xs !uppercase !tracking-wider xl:inline-flex">Donate</Link>
           <button
-            className="grid h-11 w-11 place-items-center rounded-full text-royal lg:hidden"
+            className="grid h-11 w-11 place-items-center text-royal xl:hidden"
             aria-label={open ? 'Close menu' : 'Open menu'}
             aria-expanded={open}
             aria-controls="mobile-menu"
-            onClick={() => setOpen((o) => !o)}
+            onClick={() => setOpen((value) => !value)}
           >
-            {open ? <X /> : <Menu />}
+            {open ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
           </button>
         </div>
       </div>
-
       <AnimatePresence>
         {open && (
           <motion.nav
@@ -59,16 +79,15 @@ export default function Navbar() {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.25 }}
-            className="overflow-hidden border-t border-royal/10 bg-white lg:hidden"
+            transition={{ duration: 0.2 }}
+            className="max-h-[calc(100dvh-72px)] overflow-y-auto border-t border-ink/10 bg-white xl:hidden"
           >
-            <ul className="container-x flex flex-col py-3">
-              {NAV_LINKS.map((l) => (
-                <li key={l.to}>
-                  <NavLink to={l.to} end={l.to === '/'} className={({ isActive }) => `flex min-h-[48px] items-center border-b border-royal/5 text-base font-medium ${isActive ? 'text-royal' : 'text-ink/80'}`}>{l.label}</NavLink>
+            <ul className="container-x grid grid-cols-2 gap-x-6 py-2">
+              {mobileLinks.map((link) => (
+                <li key={link.label}>
+                  <Link to={link.to} onClick={() => setOpen(false)} className={`flex min-h-[48px] items-center border-b border-ink/5 text-sm font-medium ${link.label === 'Donate' ? 'text-leaf-700' : 'text-ink/80'}`}>{link.label}</Link>
                 </li>
               ))}
-              <li className="py-4"><Link to="/donate" className="btn btn-saffron w-full">Donate Now</Link></li>
             </ul>
           </motion.nav>
         )}
