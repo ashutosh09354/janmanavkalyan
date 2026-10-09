@@ -4,17 +4,17 @@ export default {
   theme: {
     extend: {
       colors: {
-        royal: { DEFAULT: '#0325A1', 700: '#021D82', 50: '#EEF1FB' },
-        leaf: { DEFAULT: '#38A901', 700: '#2C8601', 50: '#EFF9E8' },
-        saffron: { DEFAULT: '#F9A03C', 700: '#E88A1F' },
-        gold: '#F5B942',
-        ink: '#0B0B0B',
-        warm: '#FAFAF7',
+        royal: { DEFAULT: '#18354B', 700: '#122A3C', 50: '#EDF2F4' },
+        leaf: { DEFAULT: '#4D794B', 700: '#3C633B', 50: '#EEF4EA' },
+        saffron: { DEFAULT: '#E8A24A', 700: '#D38D35' },
+        gold: '#E5B85C',
+        ink: '#283238',
+        warm: '#FBFAF6',
       },
       fontFamily: { sans: ['DM Sans', 'Inter', 'system-ui', 'sans-serif'], serif: ['Source Serif 4', 'Georgia', 'serif'] },
       boxShadow: {
-        soft: '0 6px 24px -8px rgba(3,37,161,0.15)',
-        lift: '0 18px 40px -14px rgba(3,37,161,0.28)',
+        soft: '0 6px 24px -8px rgba(24,53,75,0.10)',
+        lift: '0 18px 40px -14px rgba(24,53,75,0.20)',
       },
     },
   },

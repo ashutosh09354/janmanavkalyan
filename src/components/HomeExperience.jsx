@@ -1,14 +1,14 @@
-import { ArrowDownRight, ArrowRight, HeartHandshake, HandHeart, Handshake } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { ArrowDownRight, ArrowRight, GraduationCap, HeartHandshake, HandHeart, Handshake } from 'lucide-react'
+import { Link, useParams } from 'react-router-dom'
 import { BLOOD_DONATION_IMAGE, IMPACT } from '../data/siteData'
 import Photo from './Photo'
 import Reveal from './Reveal'
 
 const areas = [
-  { title: 'Education', description: 'Learning support for children and families.', image: '/images/instsgram post/656077685_18059426180691292_4985631946105061619_n..webp', alt: 'Foundation members standing outside a hospital emergency department' },
-  { title: 'Healthcare', description: 'Community health support and awareness.', image: '/images/about/About.png', alt: 'Newspaper coverage of Foundation members helping arrange blood for a kidney transplant' },
-  { title: 'Food & Nutrition', description: 'Food distribution and community care.', image: '/images/hero/hero.jpeg', alt: 'Volunteers serving a community meal' },
-  { title: 'Blood Donation', description: 'Blood donation activities that support those in need.', image: BLOOD_DONATION_IMAGE, alt: 'A newspaper photograph of a Foundation blood donation camp' },
+  { title: 'Education', description: 'Learning support for children and families.', image: '/images/instsgram post/656649099_18120069895528037_1551288656074156068_n..webp', alt: 'Foundation activity supporting education and learning' },
+  { title: 'Healthcare', description: 'Community health support and awareness.', image: '/images/instsgram post/656077685_18059426180691292_4985631946105061619_n..webp', alt: 'Foundation members gathered outside a hospital emergency department' },
+  { title: 'Food & Nutrition', description: 'Food distribution and community care.', image: '/images/instsgram post/655987176_18069999431270939_3194857039852054680_n..webp', alt: 'Volunteers serving food at a community activity' },
+  { title: 'Blood Donation', description: 'Blood donation activities that support those in need.', image: BLOOD_DONATION_IMAGE, alt: 'A Foundation volunteer donating blood' },
 ]
 
 const process = [
@@ -20,33 +20,51 @@ const process = [
 
 const storyMoments = [
   {
+    slug: 'blood-donation',
     image: BLOOD_DONATION_IMAGE,
-    alt: 'A newspaper photograph of a Foundation blood donation camp',
+    alt: 'A Foundation volunteer donating blood',
     label: 'Blood donation',
     title: 'When someone steps forward to donate.',
     text: 'A moment from a Foundation blood donation activity.',
+    article: [
+      'Blood donation is a practical way to support people who need blood. This photograph captures a Jan Manav Kalyan Foundation member donating at a blood bank.',
+      'The Foundation has reported that 11 people donated blood at one camp. Each donation is a personal act of care, made possible by people choosing to show up for others.',
+      'This story shares the moment visible in the photograph. Further details about the date, location and people supported have not been confirmed.',
+    ],
   },
   {
-    image: '/images/hero/hero.jpeg',
-    alt: 'Volunteers serving a community meal',
+    slug: 'community-meal',
+    image: '/images/instsgram post/658380524_18309529420287319_7949303713269082549_n..webp',
+    alt: 'Foundation volunteers preparing food at a community activity',
     label: 'Food distribution',
     title: 'A meal shared with the community.',
     text: 'Volunteers serve a meal together at a community activity.',
+    article: [
+      'Preparing and sharing a meal takes a collective effort. In this photograph, Foundation volunteers are at work around a community meal.',
+      'Food distribution is one of the Foundation’s community activities. Moments like this show volunteers taking part in the hands-on work of preparing food to share.',
+      'No event date, location or number of people served has been confirmed for this photograph.',
+    ],
   },
   {
-    image: '/images/about/About1.png',
-    alt: 'Jan Manav Kalyan Foundation volunteers taking part in a community clean-up',
+    slug: 'community-clean-up',
+    image: '/images/instagram/insta3.webp',
+    alt: 'Foundation volunteers gathered for a community clean-up',
     label: 'Community action',
     title: 'A cleaner neighbourhood starts together.',
     text: 'Foundation volunteers take part in a community clean-up.',
+    article: [
+      'A cleaner neighbourhood is a shared responsibility. This photograph shows Foundation volunteers gathered with cleaning tools for a community clean-up activity.',
+      'Taking part together turns care for a shared place into practical action. The photograph records one moment of volunteers working towards a cleaner community.',
+      'Specific details about the date, location and amount of waste collected have not been confirmed.',
+    ],
   },
 ]
 
 const galleryItems = [
-  { image: '/images/hero/hero.jpeg', alt: 'Jan Manav Kalyan Foundation volunteers serving food at a community event', caption: 'Food distribution' },
-  { image: BLOOD_DONATION_IMAGE, alt: 'A newspaper photograph of a Foundation blood donation camp', caption: 'Blood donation' },
-  { image: '/images/about/About1.png', alt: 'Jan Manav Kalyan Foundation volunteers at a community clean-up', caption: 'Community action' },
-  { image: '/images/instagram/insta4.webp', alt: 'Food being served during a Foundation community activity', caption: 'Community care' },
+  { image: '/images/instsgram post/655987176_18069999431270939_3194857039852054680_n..webp', alt: 'Volunteers serving food at a community activity', caption: 'Food distribution' },
+  { image: BLOOD_DONATION_IMAGE, alt: 'A Foundation volunteer donating blood', caption: 'Blood donation' },
+  { image: '/images/instagram/insta3.webp', alt: 'Foundation volunteers gathered for a community clean-up', caption: 'Community clean-up' },
+  { image: '/images/hero/hero.jpeg', alt: 'Foundation volunteers gathered at a community meal', caption: 'Community meal' },
   { image: '/images/instsgram post/658380524_18309529420287319_7949303713269082549_n..webp', alt: 'Foundation members gathered at a community event', caption: 'Together in service' },
 ]
 
@@ -75,11 +93,11 @@ export function HomeHero() {
         eager
         position="center 45%"
         mobilePosition="78% center"
-        className="absolute inset-0 -z-20"
+        className="absolute inset-0 z-0"
       />
-      <div aria-hidden="true" className="home-hero-overlay absolute inset-0 -z-10" />
-      <div className="container-x w-full pb-12 pt-28 md:pb-16 md:pt-16">
-        <Reveal className="max-w-4xl">
+      <div aria-hidden="true" className="home-hero-overlay absolute inset-0 z-10" />
+      <div className="container-x relative z-20 w-full pb-12 pt-28 md:pb-16 md:pt-16">
+        <div className="max-w-4xl">
           <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-white/85 sm:text-sm">Janmanav Kalyan Foundation</p>
           <h1 className="max-w-5xl font-serif text-[clamp(2.4rem,4.5vw,3.9rem)] font-medium leading-[1.08] tracking-[-0.03em] text-white">
             Building a Better Tomorrow,<br className="hidden sm:block" /> <span className="text-saffron">One Life at a Time</span>
@@ -94,9 +112,9 @@ export function HomeHero() {
           <a href="#impact" className="mt-12 hidden w-fit items-center gap-2 text-sm font-medium text-white/75 transition hover:text-white md:flex">
             Discover our work <ArrowDownRight className="h-4 w-4" aria-hidden="true" />
           </a>
-        </Reveal>
+        </div>
       </div>
-      <p className="absolute bottom-5 right-6 hidden max-w-52 text-right text-sm text-white/80 lg:block">A community meal, shared by Foundation volunteers.</p>
+      <p className="absolute bottom-5 right-6 z-20 hidden max-w-52 text-right text-sm text-white/80 lg:block">A community meal, shared by Foundation volunteers.</p>
     </section>
   )
 }
@@ -110,7 +128,7 @@ export function ImpactSection() {
             <p className="eyebrow">Our impact</p>
             <h2 id="impact-heading" className="mt-2 font-serif text-3xl font-medium text-royal sm:text-4xl">Every effort counts.</h2>
           </div>
-          <p className="max-w-sm text-base leading-relaxed text-ink/65">We share figures when they have been verified by the Foundation.</p>
+          <p className="max-w-sm text-base leading-relaxed text-ink/65">Illustrative figures shown pending verification by the Foundation.</p>
         </div>
         <dl className="mt-8 grid grid-cols-2 gap-y-7 sm:mt-10 sm:grid-cols-4">
           {IMPACT.map((metric) => {
@@ -123,7 +141,6 @@ export function ImpactSection() {
             )
           })}
         </dl>
-        <p className="mt-7 text-sm text-ink/60">5,000+ people supported and 50+ initiatives are illustrative placeholders—replace with verified figures before publication. The 11-donor figure was reported at one camp.</p>
       </div>
     </section>
   )
@@ -174,12 +191,12 @@ export function AreasSection() {
                         </div>
                       </>
                     ) : (
-                      <div className="flex aspect-[1.2/1] flex-col justify-between rounded-lg border border-[#d9ded8] bg-[#e2e7dc] p-6 sm:p-8">
-                        <p className="eyebrow">A focus for community support</p>
+                      <div className="flex aspect-[1.2/1] flex-col justify-between rounded-lg border border-[#d9ded8] bg-gradient-to-br from-leaf-50 to-[#f6f3e9] p-6 sm:p-8">
+                        <area.icon className="h-8 w-8 text-leaf" aria-hidden="true" />
                         <div>
-                          <h3 className="font-serif text-4xl font-medium text-royal sm:text-5xl">{area.title}</h3>
+                          <p className="eyebrow">A focus for community support</p>
+                          <h3 className="mt-2 font-serif text-4xl font-medium text-royal sm:text-5xl">{area.title}</h3>
                           <p className="mt-3 max-w-sm text-base leading-relaxed text-ink/70 sm:text-lg">{area.description}</p>
-                          <p className="mt-4 text-sm text-ink/50">Foundation photography to be added</p>
                         </div>
                       </div>
                     )}
@@ -238,7 +255,7 @@ export function StoriesSection() {
         <div className="grid gap-8 md:grid-cols-3 md:gap-7">
           {storyMoments.map((story, index) => (
             <Reveal key={story.label} delay={index * 0.05}>
-              <Link to="/media" className="group block">
+              <Link to={`/stories/${story.slug}`} className="group block">
                 <div className="aspect-[1.12/1] overflow-hidden rounded-lg border border-[#d9ded8] bg-royal-50 sm:aspect-[1.2/1]">
                   <Photo src={story.image} alt={story.alt} className="transition duration-500 group-hover:scale-[1.025]" />
                 </div>
@@ -252,6 +269,45 @@ export function StoriesSection() {
         </div>
       </div>
     </section>
+  )
+}
+
+export function StoryArticlePage() {
+  const { slug } = useParams()
+  const story = storyMoments.find((item) => item.slug === slug)
+
+  if (!story) {
+    return (
+      <section className="section-y">
+        <div className="container-x max-w-3xl">
+          <p className="eyebrow">Story not found</p>
+          <h1 className="editorial-heading mt-3">This story isn’t available.</h1>
+          <Link to="/#stories" className="text-link mt-6"><ArrowRight className="h-4 w-4 rotate-180" aria-hidden="true" /> Back to stories</Link>
+        </div>
+      </section>
+    )
+  }
+
+  return (
+    <article className="section-y">
+      <div className="container-x max-w-5xl">
+        <Link to="/#stories" className="text-link mb-8"><ArrowRight className="h-4 w-4 rotate-180" aria-hidden="true" /> Back to stories</Link>
+        <header className="mb-8 max-w-3xl sm:mb-10">
+          <p className="eyebrow">{story.label}</p>
+          <h1 className="editorial-heading mt-3 text-4xl sm:text-5xl lg:text-6xl">{story.title}</h1>
+          <p className="mt-5 text-lg leading-relaxed text-ink/65 sm:text-xl">{story.text}</p>
+        </header>
+        <figure className="overflow-hidden rounded-lg border border-[#d9ded8] bg-white shadow-soft">
+          <div className="aspect-[4/3] max-h-[620px] sm:aspect-[16/9]">
+            <Photo src={story.image} alt={story.alt} eager />
+          </div>
+          <figcaption className="px-4 py-3 text-sm text-ink/60 sm:px-6">{story.alt}</figcaption>
+        </figure>
+        <div className="mx-auto mt-8 max-w-3xl space-y-5 text-base leading-relaxed text-ink/75 sm:mt-10 sm:text-lg">
+          {story.article.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+        </div>
+      </div>
+    </article>
   )
 }
 

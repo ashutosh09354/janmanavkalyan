@@ -24,6 +24,7 @@ import {
   HowWeWork,
   ImpactSection,
   StoriesSection as HomeStories,
+  StoryArticlePage,
   WhyWeExist,
 } from '../components/HomeExperience'
 import LegalCenter from './LegalCenter'
@@ -35,6 +36,7 @@ const PAGE_TITLES = {
   '/campaigns': 'Campaigns',
   '/causes': 'Our Causes',
   '/work': 'Our Work',
+  '/stories': 'Community Story',
   '/media': 'Media',
   '/gallery': 'Community Gallery',
   '/contact': 'Contact',
@@ -48,6 +50,7 @@ const PAGE_DESCRIPTIONS = {
   '/campaigns': 'Find campaign updates from Janmanav Kalyan Foundation. Campaign details are published when confirmed.',
   '/causes': 'Explore the community causes supported by Janmanav Kalyan Foundation.',
   '/work': 'Explore documented community activities by Janmanav Kalyan Foundation.',
+  '/stories': 'Stories from Janmanav Kalyan Foundation community activities.',
   '/media': 'Read media coverage and updates about Janmanav Kalyan Foundation activities.',
   '/gallery': 'View photographs from Janmanav Kalyan Foundation community activities.',
   '/legal-center': 'Read the legal information and policy publication status for Janmanav Kalyan Foundation.',
@@ -77,6 +80,7 @@ export const CausesPage = () => (
   </div></section>
 )
 export const WorkPage = () => (<><WorkSection /><StoriesSection /><CTASection /></>)
+export { StoryArticlePage }
 export { CampaignsPage, LegalCenter }
 export const MediaPage = () => (<><MediaSection /><CTASection /></>)
 export const GalleryPage = () => (
@@ -92,8 +96,9 @@ export function ScrollManager({ pathname, hash }) {
   useEffect(() => {
     if (hash) setTimeout(() => document.querySelector(hash)?.scrollIntoView({ behavior: 'smooth' }), 80)
     else window.scrollTo(0, 0)
-    const title = `${PAGE_TITLES[pathname] || 'Janmanav Kalyan Foundation'} | Janmanav Kalyan Foundation`
-    const description = PAGE_DESCRIPTIONS[pathname] || PAGE_DESCRIPTIONS['/']
+    const pageKey = pathname.startsWith('/stories/') ? '/stories' : pathname
+    const title = `${PAGE_TITLES[pageKey] || 'Janmanav Kalyan Foundation'} | Janmanav Kalyan Foundation`
+    const description = PAGE_DESCRIPTIONS[pageKey] || PAGE_DESCRIPTIONS['/']
     document.title = title
     document.querySelector('meta[name="description"]')?.setAttribute('content', description)
     document.querySelector('meta[property="og:title"]')?.setAttribute('content', title)

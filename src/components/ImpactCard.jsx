@@ -19,7 +19,7 @@ export default function ImpactCard({ icon, value, label, tone = 'leaf' }) {
         <Icon name={icon} className="h-5 w-5" />
       </span>
       <p className="mt-3 text-3xl font-extrabold text-royal sm:text-4xl">
-        {value == null ? 'XX+' : `${n}+`}
+        {value == null ? '—' : typeof value === 'number' ? n : value}
       </p>
       <p className="mt-1 text-sm font-medium text-ink/70">{label}</p>
     </div>
