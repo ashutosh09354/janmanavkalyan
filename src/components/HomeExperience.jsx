@@ -98,7 +98,7 @@ export function HomeHero() {
       <div aria-hidden="true" className="home-hero-overlay absolute inset-0 z-10" />
       <div className="container-x relative z-20 w-full pb-12 pt-28 md:pb-16 md:pt-16">
         <div className="max-w-4xl">
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-white/85 sm:text-sm">Janmanav Kalyan Foundation</p>
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-white/85 sm:text-sm">Jan manav Kalyan Foundation</p>
           <h1 className="max-w-5xl font-serif text-[clamp(2.4rem,4.5vw,3.9rem)] font-medium leading-[1.08] tracking-[-0.03em] text-white">
             Building a Better Tomorrow,<br className="hidden sm:block" /> <span className="text-saffron">One Life at a Time</span>
           </h1>
